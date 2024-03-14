@@ -2,7 +2,7 @@ import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-const ubuntuMono = Ubuntu_Mono({ subsets: ["latin"] ,weight:["400","700"], style:"normal",preload:true});
+const ubuntuMono = Ubuntu_Mono({ subsets: ["latin"] ,weight:["700"], style:"normal",preload:true});
 
 export const metadata = {
   title: "MONLANDS",
