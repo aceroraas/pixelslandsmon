@@ -5053,12 +5053,8 @@
 		 "silo": false,
 		 "soilCount": 60,
 		 "treeCount": 24,
-		 "industries": [
-			  "textile",
-			  "textile",
-			  "textile",
-			  "textile"
-		 ],
+		 "industries": [],
+		 "lock":true,
 		 "lastUpdated": 1709532954724
 	},
 	{
