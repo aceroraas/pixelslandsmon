@@ -47,7 +47,6 @@ const LandTreeTimer = ({ land }) => {
             let diferencia = time - ahora;
             if (diferencia <= 0) {
                clearInterval(intervalRef.current);
-               localStorage.setItem(land.plot, JSON.stringify({ ...land, treeTimer: ahora }));
                setShowMsg("AHORA 🪓");
                autoResetTimer();
                return;
