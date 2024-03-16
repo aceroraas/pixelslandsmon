@@ -17,7 +17,6 @@ const LandTreeTimer = ({ land }) => {
 
    const clearTimer = useCallback(() => {
       if (treeTimer) {
-         console.log("is stop");
          localStorage.setItem(land.plot, JSON.stringify({ ...land, treeTimer: false }));
          setTreeTimer(false);
          setShowMsg(false);
@@ -30,7 +29,7 @@ const LandTreeTimer = ({ land }) => {
          console.log("is auto reset stop");
          setShowMsg(false);
          let metadata = JSON.parse(localStorage.getItem(land.plot));
-         if (metadata?.treeTimer && metadata?.treeTimer !== false) {
+         if (metadata?.treeTimer && metadata?.treeTimer != false) {
             let time = new Date(metadata.treeTimer);
             startTimer(time);
          } else {
@@ -83,11 +82,25 @@ const LandTreeTimer = ({ land }) => {
       }
    }
    useEffect(() => {
-      let metadata = JSON.parse(localStorage.getItem(land.plot));
-      if (metadata?.treeTimer && metadata?.treeTimer !== false) {
-         let time = new Date(metadata.treeTimer);
-         startTimer(time);
-      }
+      const handleLoad = () => {
+         setTimeout(() => {
+            console.log("INIT");
+
+            let metadata = JSON.parse(localStorage.getItem(land.plot));
+            if (metadata?.treeTimer && metadata?.treeTimer != false) {
+               console.log("launch on time plot: " + metadata.plot + " - " + metadata.treeTimer);
+               let time = new Date(metadata.treeTimer);
+               startTimer(time);
+            }
+         }, 500);
+      };
+
+      window.addEventListener("load", handleLoad);
+
+      // Devuelve una función de limpieza para eliminar el detector de eventos
+      return () => {
+         window.removeEventListener("load", handleLoad);
+      };
    }, []);
    return <span onClick={handleStartStopTimer} className="cursor-pointer font-bold text-2xl">{`🌳${land.treeCount} ${treeTimer ? showMsg ? showMsg : "" : ""}`}</span>
 };
