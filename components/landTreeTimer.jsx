@@ -30,7 +30,7 @@ const LandTreeTimer = ({ land }) => {
          console.log("is auto reset stop");
          setShowMsg(false);
          let metadata = JSON.parse(localStorage.getItem(land.plot));
-         if (metadata?.treeTimer !== false) {
+         if (metadata?.treeTimer && metadata?.treeTimer !== false) {
             let time = new Date(metadata.treeTimer);
             startTimer(time);
          } else {
@@ -84,7 +84,7 @@ const LandTreeTimer = ({ land }) => {
    }
    useEffect(() => {
       let metadata = JSON.parse(localStorage.getItem(land.plot));
-      if (metadata?.treeTimer !== false) {
+      if (metadata?.treeTimer && metadata?.treeTimer !== false) {
          let time = new Date(metadata.treeTimer);
          startTimer(time);
       }
