@@ -81,14 +81,14 @@ const LandTreeTimer = ({ land }) => {
          startTimer();
       }
    }
-
-
    useEffect(() => {
-      launchIterval();
-   }, [launchIterval]);
+      let metadata = JSON.parse(localStorage.getItem(land.plot));
+      if (metadata?.treeTimer !== false) {
+         let time = new Date(metadata.treeTimer);
+         startTimer(time);
+      }
+   }, []);
    return <span onClick={handleStartStopTimer} className="cursor-pointer font-bold text-2xl">{`🌳${land.treeCount} ${treeTimer ? showMsg ? showMsg : "" : ""}`}</span>
 };
 
 export default LandTreeTimer;
-
-
