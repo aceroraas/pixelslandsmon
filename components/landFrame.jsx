@@ -21,7 +21,7 @@ useEffect(()=>{
     })
     FocusPlotRef.current.focus();
   }
-},[FocusPlotRef,FocusPlot,inView]);
+},[FocusPlotRef,FocusPlot]);
  return <div ref={ref} className={`w-full rounded-b-sm ${showLand?"h-[508px]":"h-[45px]"} py-2 ${inView?"bg-blue-500":"bg-fuchsia-400"}`} autoFocus={FocusPlot}>
   <button ref={FocusPlotRef} className='ml-3 mb-3 p-1 bg-slate-300 rounded-md text-blue-900' onClick={handleClick} >{`${showLand?"HIDE":"SHOW"}`}</button>
   {inView&&showLand?<iframe

@@ -1,3 +1,4 @@
+import LandIsLock from "./landIsLock";
 const LandProperties = ({land}) => {
    const industries = {
       mine:"⛏️",
@@ -9,6 +10,7 @@ const LandProperties = ({land}) => {
    }
  return <div className="flex w-full flex-row flex-wrap justify-stretch items-center gap-4 px-3">
    <span className="font-bold text-2xl">{`#${land.plot}`}</span>
+   <LandIsLock land={land}/>
    <span className="font-bold text-2xl">{`🌳${land.treeCount}`}</span>
    <span className="font-bold text-2xl">{`🌱${land.soilCount}`}</span>
    <span className="font-bold text-2xl">{land.windmill?"🌾":""}</span>

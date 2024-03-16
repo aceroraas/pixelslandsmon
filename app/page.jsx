@@ -5,7 +5,7 @@ import { promises as fs } from 'fs';
 
 export default async function Home({FocusPlot}) {
   const file = await fs.readFile(process.cwd() + '/lib/lands.json', 'utf8');
- const lands =  JSON.parse(file);
+  const lands =  JSON.parse(file);
   return (
     <main className="flex min-h-screen w-[99%] flex-col items-center justify-center  gap-y-20 px-10 text-black mt-8">
       
