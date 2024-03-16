@@ -7,7 +7,7 @@ const LandTreeTimer = ({ land }) => {
    const intervalRef = useRef(null); // Nueva referencia para almacenar el intervalo
 
    const startTimer = (time = false) => {
-      let now = time ? time : Date.now();
+      let now = time != false ? time : Date.now();
       let hour7 = now + ((7 * 60 * 60 * 1000) + (15 * 60 * 1000));
       let fechaFinal = new Date(hour7);
       localStorage.setItem(land.plot, JSON.stringify({ ...land, treeTimer: fechaFinal }));
@@ -26,7 +26,6 @@ const LandTreeTimer = ({ land }) => {
 
    const autoResetTimer = useCallback(() => {
       setTimeout(() => {
-         console.log("is auto reset stop");
          setShowMsg(false);
          let metadata = JSON.parse(localStorage.getItem(land.plot));
          if (metadata?.treeTimer && metadata?.treeTimer != false) {
@@ -59,12 +58,7 @@ const LandTreeTimer = ({ land }) => {
             let horasFormateadas = horas.toString().padStart(2, '0');
             let minutosFormateados = minutos.toString().padStart(2, '0');
             let segundosFormateados = segundos.toString().padStart(2, '0');
-            if (treeTimer) {
-               setShowMsg(`${horasFormateadas}:${minutosFormateados}:${segundosFormateados}`);
-            } else {
-               clearTimer();
-               return;
-            }
+            setShowMsg(`${horasFormateadas}:${minutosFormateados}:${segundosFormateados}`);
          } else {
             clearTimer();
             return;
@@ -82,27 +76,10 @@ const LandTreeTimer = ({ land }) => {
       }
    }
    useEffect(() => {
-      const handleLoad = () => {
-         setTimeout(() => {
-            console.log("INIT");
-
-            let metadata = JSON.parse(localStorage.getItem(land.plot));
-            if (metadata?.treeTimer && metadata?.treeTimer != false) {
-               console.log("launch on time plot: " + metadata.plot + " - " + metadata.treeTimer);
-               let time = new Date(metadata.treeTimer);
-               startTimer(time);
-            }
-         }, 500);
-      };
-
-      window.addEventListener("load", handleLoad);
-
-      // Devuelve una función de limpieza para eliminar el detector de eventos
-      return () => {
-         window.removeEventListener("load", handleLoad);
-      };
+      launchIterval();
+      setTreeTimer(true);
    }, []);
-   return <span onClick={handleStartStopTimer} className="cursor-pointer font-bold text-2xl">{`🌳${land.treeCount} ${treeTimer ? showMsg ? showMsg : "" : ""}`}</span>
+   return <span onClick={handleStartStopTimer} className="cursor-pointer font-bold text-2xl">{`🌳${land.treeCount} ${showMsg ? showMsg : ""}`}</span>
 };
 
 export default LandTreeTimer;
