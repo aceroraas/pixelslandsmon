@@ -3453,7 +3453,7 @@
 			"sluggery",
 			"sluggery"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 261,
@@ -3482,7 +3482,7 @@
 		"soilCount": 60,
 		"treeCount": 24,
 		"industries": [],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 263,
@@ -3548,7 +3548,7 @@
 			"sluggery",
 			"sluggery"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 267,
@@ -3565,7 +3565,7 @@
 			"woodwork",
 			"woodwork"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 268,
@@ -3582,7 +3582,7 @@
 			"woodwork",
 			"woodwork"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 269,
@@ -3673,7 +3673,7 @@
 			"mine",
 			"mine"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 275,
@@ -38200,7 +38200,7 @@
 			"mine",
 			"mine"
 		],
-		"lock": false
+		"lock": true
 	},
 	{
 		"plot": 2722,
