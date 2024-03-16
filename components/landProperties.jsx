@@ -7,7 +7,8 @@ const LandProperties = ({ land }) => {
       sluggery: "🐛",
       kiln: "🧱",
       apiary: "🐝",
-      woodwork: "🔨"
+      woodwork: "🔨",
+      winery: "🍷"
    }
    return <div className="flex w-full flex-row flex-wrap justify-stretch items-center gap-4 px-3">
       <span className="font-bold text-2xl">{`#${land.plot}`}</span>
